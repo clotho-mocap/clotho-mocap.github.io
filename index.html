@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -83,14 +83,14 @@
           Shihui Guo<sup>1</sup>
         </a>
         <a href="https://jiawei.tech/" target="_blank">
-          Jiawei Fang<sup>4</sup>
+          Jiawei Fang<sup>1,4</sup>
         </a>
       </div>
     </div>
     <div style="height: 0.5em"></div>
 
     <!-- Affiliations -->
-    <div id="affiliations" style="color: #777">
+    <div id="affiliations">
       <div><sup>1</sup>&nbsp;Xiamen University</div>
       <div><sup>2</sup>&nbsp;MIT</div>
       <div><sup>3</sup>&nbsp;Cardiff University</div>
@@ -99,7 +99,7 @@
     <div style="height: 0.75em"></div>
 
     <!-- Venue -->
-    <div style="text-align: center; font-weight: 500">In Submission</div>
+    <div id="venue">In Submission</div>
     <div style="height: 1.25em"></div>
 
     <!-- Links -->
@@ -142,6 +142,43 @@
         preload="metadata"
         style="box-shadow: 0 0 1em rgba(0, 0, 0, 0.07)"
       ></video>
+    </section>
+
+    <!-- Abstract -->
+    <section class="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Garment-mounted inertial measurement units (IMUs) offer a promising
+        path toward comfortable, unobtrusive, and scalable human motion
+        capture, yet their performance still lags behind tightly attached
+        inertial systems. The central challenge is that loose-wear IMUs
+        provide only indirect, garment-mediated measurements of the
+        underlying body dynamics. The sensor&ndash;body coupling is
+        configuration-dependent, varying with garment material, fit, sensor
+        placement, and IMU layout, while long-term inertial drift further
+        perturbs the observation space. Consequently, identical body motions
+        can induce substantially different inertial measurements across
+        garments, yielding heterogeneous, noisy, and temporally drifting
+        observations. In this paper, we introduce <b>CLOTHO</b>, an
+        <b>IMU canonicalization</b> framework for garment-based inertial
+        motion capture. Rather than directly mapping loose-wear IMUs to body
+        pose, CLOTHO reformulates garment-based motion capture as an
+        IMU canonicalization problem: recovering clean, drift-corrected, and
+        spatially complete tight-wear inertial signals from corrupted and
+        incomplete loose-wear observations. To train and evaluate
+        CLOTHO, we collect the <b>largest garment-based inertial
+        motion capture dataset</b> to date, comprising <b>12.5M IMU
+        frames</b>, approximately <b>116 hours</b> of recordings, and five
+        garment designs with diverse materials, layouts, IMU counts, and
+        sensing hardware. Extensive experiments show that a single fixed
+        CLOTHO model achieves <b>state-of-the-art</b> accuracy,
+        <b>zero-shot generalization to unseen garments, and improved
+        robustness during long-term tracking.</b> We also find that
+        CLOTHO demonstrates <b>superior scaling behavior</b>, enabling
+        practical deployment across diverse everyday garments. We will
+        open-source all our software codes, model weights, hardware designs,
+        and datasets to facilitate future research.
+      </p>
     </section>
   </body>
 </html>
