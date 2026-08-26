@@ -177,36 +177,39 @@ section.content-section h2::after {
   transform: translateX(-50%);
 }
 
-section.content-section p,
-section.content-section .section-figure figcaption {
+section.content-section .section-text {
   width: 100%;
   max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
   font-size: 100%;
   line-height: 1.5;
   text-align: justify;
   color: var(--color-section-ink);
 }
 
-section.content-section .section-figure {
+section.content-section .section-image {
   width: 100%;
   max-width: 100%;
-  margin: 0;
-}
-
-section.content-section .section-figure img {
-  width: 100%;
   height: auto;
   display: block;
+  margin: 0 0 1em 0;
   background: transparent;
 }
 
-section.content-section .section-figure figcaption {
-  margin-top: 1em;
+section.content-section .section-text + .section-text,
+section.content-section .section-image + .section-text {
+  margin-top: 0;
 }
 
-section.abstract b,
-section.abstract strong {
+section.abstract .section-text b,
+section.abstract .section-text strong {
   color: var(--color-accent);
+}
+
+section.method .section-text b,
+section.method .section-text strong,
+section.hardware .section-text b,
+section.hardware .section-text strong {
+  color: inherit;
+  font-weight: inherit;
 }
