@@ -175,7 +175,7 @@ section.abstract h2::after {
 }
 
 section.abstract p {
-  font-size: 125%;
+  font-size: 100%;
   line-height: 1.5;
   text-align: justify;
   color: var(--color-body);
