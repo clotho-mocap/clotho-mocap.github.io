@@ -180,5 +180,28 @@
         and datasets to facilitate future research.
       </p>
     </section>
+
+    <!-- Method -->
+    <section class="method">
+      <h2>Method</h2>
+      <figure class="method-figure">
+        <img
+          src="./images/Fig_pipeline.png"
+          alt="CLOTHO pipeline: Masked IMU Encoder and Latent-Conditioned IMU Canonicalizer"
+          width="100%"
+        />
+        <figcaption>
+          Given sparse and noisy loose-wear IMU observations,
+          CLOTHO first canonicalizes them into a clean, drift-corrected,
+          and spatially complete 10-IMU representation. The
+          Masked IMU Encoder extracts a configuration-invariant latent
+          representation from partial observations, and the
+          Latent-Conditioned IMU Canonicalizer predicts residual
+          corrections to recover canonical IMU sequences. A downstream motion
+          reconstruction then reconstructs full-body motion from the recovered
+          canonical IMU sequences.
+        </figcaption>
+      </figure>
+    </section>
   </body>
 </html>
