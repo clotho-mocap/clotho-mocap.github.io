@@ -146,6 +146,36 @@ button:hover {
   color: var(--color-accent);
 }
 
+#logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em 2em;
+  max-width: 52em;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+#logo-row img {
+  height: 2.75em;
+  width: auto;
+  max-width: 11em;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  #logo-row {
+    gap: 1em 1.25em;
+  }
+
+  #logo-row img {
+    height: 2.25em;
+    max-width: 9em;
+  }
+}
+
 /* Abstract / Method / Hardware — shared section width & prose */
 section.content-section {
   max-width: 60em;
@@ -196,9 +226,8 @@ section.content-section .section-image {
   background: transparent;
 }
 
-section.content-section .section-text + .section-text,
 section.content-section .section-image + .section-text {
-  margin-top: 0;
+  margin-top: 1em;
 }
 
 section.abstract .section-text b,
