@@ -145,7 +145,7 @@
     </section>
 
     <!-- Abstract -->
-    <section class="abstract">
+    <section class="abstract content-section">
       <h2>Abstract</h2>
       <p>
         Garment-mounted inertial measurement units (IMUs) offer a promising
@@ -182,9 +182,9 @@
     </section>
 
     <!-- Method -->
-    <section class="method">
+    <section class="method content-section">
       <h2>Method</h2>
-      <figure class="method-figure">
+      <figure class="section-figure">
         <img
           src="./images/Fig_pipeline.png"
           alt="CLOTHO pipeline: Masked IMU Encoder and Latent-Conditioned IMU Canonicalizer"
@@ -200,6 +200,27 @@
           corrections to recover canonical IMU sequences. A downstream motion
           reconstruction then reconstructs full-body motion from the recovered
           canonical IMU sequences.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Hardware -->
+    <section class="hardware content-section">
+      <h2>Hardware</h2>
+      <figure class="section-figure">
+        <img
+          src="./images/Fig_hardware.jpg"
+          alt="Fabrication-and-sensing pipelines and garment configurations"
+          width="100%"
+        />
+        <figcaption>
+          Fabrication-and-sensing pipelines and garment configurations. (a) The
+          Pattern-Integrated Sensing Pipeline. (b) The Pocket-Mounted Add-on
+          Pipeline. (c) Garment configurations used in our datasets. Green-10,
+          Taichi-10, and White-10 use 10 low-cost BNO085 IMUs, with an
+          approximate cost of US$19 per IMU; Purple-6 uses 6 Xsens MTi-3 IMUs,
+          with an approximate cost of US$230 per IMU; T-Shirt-4 uses 4 Noitom
+          PN3 sensors.
         </figcaption>
       </figure>
     </section>
