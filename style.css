@@ -458,6 +458,50 @@ a {
   text-align: left;
 }
 
+.prior {
+  padding: 8px 0 36px;
+  border-top: 1px solid var(--line);
+}
+
+.prior-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.prior-list a {
+  display: grid;
+  grid-template-columns: 148px 72px minmax(0, 1fr);
+  gap: 12px 20px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.prior-venue {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.prior-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.prior-title {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.prior-list a:hover .prior-name {
+  color: var(--accent);
+}
+
 .site-footer {
   display: flex;
   flex-wrap: wrap;
@@ -503,5 +547,10 @@ a {
 
   .figure-longterm figcaption {
     margin-top: 14px;
+  }
+
+  .prior-list a {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }
