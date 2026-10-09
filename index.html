@@ -21,7 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,560;1,6..72,460&display=swap"
       rel="stylesheet"
     />
-    <link href="style.css?v=4" rel="stylesheet" />
+    <link href="style.css?v=5" rel="stylesheet" />
     <script src="app.js?v=4" defer></script>
   </head>
   <body>
@@ -258,7 +258,7 @@
               where drift-sensitive baselines diverge.
             </figcaption>
           </figure>
-          <figure class="figure">
+          <figure class="figure figure-split">
             <img
               src="./images/Fig_sota.png"
               alt="Qualitative comparison of CLOTHO against prior garment-based inertial motion capture methods"
@@ -266,7 +266,8 @@
             <figcaption>
               Qualitative comparison across garments. Unlike methods that train a
               separate model for each IMU count, CLOTHO uses one unified model
-              for every setting.
+              for every setting. On T-Shirt-4, it still reconstructs full-body
+              motion from only sparse upper-body IMU inputs.
             </figcaption>
           </figure>
           <figure class="figure">
@@ -275,9 +276,54 @@
               alt="Scaling behavior of CLOTHO with data and model size"
             />
             <figcaption>
-              CLOTHO improves as unlabeled IMU data and paired garment–motion
-              data scale, and canonicalization outperforms direct pose regression
-              across data budgets.
+              <p>
+                We study how garment-based motion capture scales along three
+                axes: data type, model formulation, and model size. Methods on
+                the same axis are trained on matched nested subsets with the
+                same schedule. Panels (a), (b), and (e) report orientation
+                measurement error (OME) on the cross-garment test set; (c) and
+                (d) report Pos Error on Green-10.
+              </p>
+              <p>
+                <strong>Data type.</strong> Paired garment–motion recordings
+                supervise the residual canonicalization mapping directly: 7.07
+                hours of labels lowers OME from 16.05° to 13.78°, but this data
+                is expensive to collect. Unlabeled garment IMUs need no motion
+                ground truth and scale to 101.1 hours of everyday wear; their
+                error keeps falling and has not saturated. The two are
+                complementary. Unlabeled data widens the motion and sensor
+                configurations seen by the encoder, and paired data then anchors
+                the canonical target.
+              </p>
+              <p>
+                <strong>Real versus synthetic.</strong> Across every data
+                budget, real-data variants of LIP and FIP stay well ahead of
+                their synthetic counterparts, and the gap does not close as
+                synthetic data grows. Even 0.55 hours of real paired recordings
+                outperforms 7 hours of synthetic garment data, so a modest
+                amount of real supervision is more useful than scaling simulated
+                loose-wear noise alone.
+              </p>
+              <p>
+                <strong>Formulation.</strong> We fit
+                ε(m) = A m<sup>−α</sup> between the amount of real paired data
+                and Pos Error. End-to-end LIP* must undo garment artifacts and
+                recover pose in one model, so extra samples help slowly
+                (α = 0.09). GlobalPose* is stronger (α = 0.15) because its
+                gravity-aware prior partly absorbs root drift, but it still
+                reads raw loose-wear signals. CLOTHO separates IMU
+                canonicalization from motion reconstruction, so each new paired
+                sample goes more directly to the residual correction and yields
+                the steepest trend (α = 0.23).
+              </p>
+              <p>
+                <strong>Model size.</strong> With paired data fixed at 7.07
+                hours, growing CLOTHO from 10.1M to 92.0M parameters — about
+                9× — reduces OME by only 1.02°. In this regime the limit is
+                data diversity, not capacity. Moving from 32.1M to 92.0M
+                recovers about 0.5° at roughly 7 ms extra latency per frame,
+                which is a poor trade for real-time use.
+              </p>
             </figcaption>
           </figure>
         </div>
