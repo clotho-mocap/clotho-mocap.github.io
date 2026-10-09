@@ -395,8 +395,12 @@ a {
   display: block;
   width: 100%;
   height: auto;
-  background: #111;
+  background: transparent;
   border: 1px solid var(--line);
+}
+
+.figure video {
+  background: #111;
 }
 
 .figure-video {
