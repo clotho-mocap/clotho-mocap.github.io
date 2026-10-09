@@ -1,233 +1,293 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>CLOTHO</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050505" />
+    <title>CLOTHO: Canonicalizing IMUs from Loose Inertial Garments</title>
     <meta
-      content="CLOTHO: Canonicalizing IMUs from Loose Inertial Garments for Accurate Human Motion Tracking"
       name="description"
+      content="CLOTHO canonicalizes IMUs from loose inertial garments for accurate human motion tracking. ACM Transactions on Graphics (SIGGRAPH Asia 2026), Conditionally Accepted."
     />
-
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-    />
-
-    <!-- Open Graph / Facebook. -->
     <meta property="og:title" content="CLOTHO" />
     <meta
       property="og:description"
-      content="Canonicalizing IMUs from Loose Inertial Garments for Accurate Human Motion Tracking"
+      content="Canonicalizing IMUs from loose inertial garments for accurate human motion tracking."
     />
     <meta property="og:type" content="website" />
-
-    <!-- Twitter. -->
-    <meta property="twitter:title" content="CLOTHO" />
-    <meta
-      property="twitter:description"
-      content="Canonicalizing IMUs from Loose Inertial Garments for Accurate Human Motion Tracking"
-    />
-
-    <!-- Webfont. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,560;1,6..72,460&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Styles. -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/tabler-icons-outline.min.css"
-      rel="stylesheet"
-    />
-    <link href="style.css?v=3" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=4" rel="stylesheet" />
+    <script src="app.js?v=4" defer></script>
   </head>
   <body>
-    <!-- Title -->
-    <div style="height: 1em"></div>
-    <h1 style="padding: 0 1em">
-      CLOTHO: Canonicalizing IMUs from Loose&nbsp;Inertial&nbsp;Garments
-      for Accurate Human&nbsp;Motion&nbsp;Tracking
-    </h1>
+    <a class="skip-link" href="#abstract">Skip to content</a>
+    <div class="read-progress" aria-hidden="true"></div>
 
-    <!-- Authors. -->
-    <div id="author-list">
-      <div class="author-row">
-        <a href="https://seagulll91.github.io/" target="_blank">
-          Xiaoxia Gao<sup>1</sup>
-        </a>
-        <span>Ruonan Zheng<sup>1</sup></span>
-        <span>Qinze Zhou<sup>1</sup></span>
-        <span>Yu Yan<sup>1</sup></span>
-        <span>Zixuan Zeng<sup>1</sup></span>
-        <span>Shifan Jiang<sup>1</sup></span>
-        <span>Chengxu Zuo<sup>1</sup></span>
-        <span>Yuan Yao<sup>1</sup></span>
-      </div>
-      <div class="author-row">
-        <a href="https://frank-zy-dou.github.io/" target="_blank">
-          Zhiyang Dou<sup>2</sup>
-        </a>
-        <a href="https://chen3110.github.io/" target="_blank">
-          Anjun Chen<sup>1</sup>
-        </a>
-        <a href="https://yipengqin.github.io/" target="_blank">
-          Yipeng Qin<sup>3</sup>
-        </a>
-        <a href="https://www.humanplus.xyz/" target="_blank">
-          Shihui Guo<sup>1</sup>
-        </a>
-        <a href="https://jiawei.tech/" target="_blank">
-          Jiawei Fang<sup>1,4</sup>
-        </a>
-      </div>
-    </div>
-    <div style="height: 0.5em"></div>
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#top">CLOTHO<i></i></a>
+      <nav class="header-nav" aria-label="Sections">
+        <a href="#demo">Demo</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#results">Results</a>
+      </nav>
+    </header>
 
-    <!-- Affiliations -->
-    <div id="affiliations">
-      <div><sup>1</sup>&nbsp;Xiamen University</div>
-      <div><sup>2</sup>&nbsp;MIT</div>
-      <div><sup>3</sup>&nbsp;Cardiff University</div>
-      <div><sup>4</sup>&nbsp;CMU</div>
-    </div>
-    <div style="height: 0.75em"></div>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-stage">
+          <video
+            class="hero-video"
+            src="./Demo.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="hero-scrim"></div>
+          <div class="hero-content page-width">
+            <p class="hero-kicker">IMU canonicalization for everyday garments</p>
+            <h1 id="hero-title">CLOTHO</h1>
+            <p class="hero-subtitle">
+              Canonicalizing IMUs from loose inertial garments for accurate
+              human motion tracking.
+            </p>
 
-    <!-- Venue -->
-    <div id="venue">In Submission</div>
-    <div style="height: 1.25em"></div>
+            <div class="hero-authors">
+              <p class="author-list">
+                <span
+                  ><a href="https://seagulll91.github.io/" target="_blank" rel="noopener"
+                    >Xiaoxia Gao</a
+                  ><sup>1</sup></span
+                >
+                <span>Ruonan Zheng<sup>1</sup></span>
+                <span>Qinze Zhou<sup>1</sup></span>
+                <span>Yu Yan<sup>1</sup></span>
+                <span>Zixuan Zeng<sup>1</sup></span>
+                <span>Shifan Jiang<sup>1</sup></span>
+                <span>Chengxu Zuo<sup>1</sup></span>
+                <span>Yuan Yao<sup>1</sup></span>
+                <span
+                  ><a href="https://frank-zy-dou.github.io/" target="_blank" rel="noopener"
+                    >Zhiyang Dou</a
+                  ><sup>2</sup></span
+                >
+                <span
+                  ><a href="https://chen3110.github.io/" target="_blank" rel="noopener"
+                    >Anjun Chen</a
+                  ><sup>1</sup></span
+                >
+                <span
+                  ><a href="https://yipengqin.github.io/" target="_blank" rel="noopener"
+                    >Yipeng Qin</a
+                  ><sup>3</sup></span
+                >
+                <span
+                  ><a href="https://www.humanplus.xyz/" target="_blank" rel="noopener"
+                    >Shihui Guo</a
+                  ><sup>1</sup></span
+                >
+                <span
+                  ><a href="https://jiawei.tech/" target="_blank" rel="noopener"
+                    >Jiawei Fang</a
+                  ><sup>1,4</sup></span
+                >
+              </p>
+              <p class="author-meta">
+                <span><sup>1</sup>Xiamen University</span>
+                <span><sup>2</sup>MIT</span>
+                <span><sup>3</sup>Cardiff University</span>
+                <span><sup>4</sup>CMU</span>
+              </p>
+              <p class="venue">
+                ACM Transactions on Graphics (SIGGRAPH Asia 2026), Conditionally
+                Accepted
+              </p>
+              <div class="hero-logos" aria-label="Affiliated institutions">
+                <img src="./images/XMU.png" alt="Xiamen University" />
+                <img src="./images/MIT.png" alt="MIT" />
+                <img src="./images/Cardiff.png" alt="Cardiff University" />
+                <img src="./images/CMU.png" alt="Carnegie Mellon University" />
+              </div>
+            </div>
 
-    <!-- Institution logos -->
-    <div id="logo-row" aria-label="Affiliated institutions">
-      <img src="./images/XMU.png" alt="Xiamen University" />
-      <img src="./images/MIT.png" alt="MIT" />
-      <img src="./images/Cardiff.png" alt="Cardiff University" />
-      <img src="./images/CMU.png" alt="Carnegie Mellon University" />
-    </div>
-    <div style="height: 1.5em"></div>
+            <div class="hero-actions">
+              <a class="pill light" href="./">arXiv <span aria-hidden="true">↗</span></a>
+              <a class="pill ghost" href="./">Paper <span aria-hidden="true">↗</span></a>
+              <a class="pill ghost" href="./">Code <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="hero-bottom page-width">
+            <span>Scroll to explore <b aria-hidden="true">↓</b></span>
+          </div>
+        </div>
+      </section>
+      <div class="hero-fade" aria-hidden="true"></div>
 
-    <!-- Links -->
-    <div
-      style="
-        display: flex;
-        justify-content: center;
-        gap: 0.75em;
-        flex-wrap: wrap;
-      "
-    >
-      <a href="./" target="_blank">
-        <button>
-          <i class="ti ti-article"></i>
-          arXiv
-        </button>
-      </a>
-      <a href="./" target="_blank">
-        <button>
-          <i class="ti ti-file-type-pdf"></i>
-          Paper
-        </button>
-      </a>
-      <a href="./" target="_blank">
-        <button>
-          <i class="ti ti-brand-github"></i>
-          Code
-        </button>
-      </a>
-    </div>
-    <div style="height: 2.5em"></div>
+      <section class="chapter" id="demo">
+        <div class="page-width">
+          <div class="chapter-head">
+            <p class="overline">Demo</p>
+            <h2>See it<br /><em>on the body.</em></h2>
+          </div>
+          <figure class="figure figure-video">
+            <video src="./Demo.mp4" controls playsinline preload="metadata"></video>
+          </figure>
+        </div>
+      </section>
 
-    <!-- Demo video -->
-    <section class="wide">
-      <video
-        src="./Demo.mp4"
-        width="100%"
-        controls
-        playsinline
-        preload="metadata"
-        style="box-shadow: 0 0 1em rgba(0, 0, 0, 0.07)"
-      ></video>
-    </section>
+      <section class="chapter" id="abstract">
+        <div class="page-width">
+          <div class="chapter-head">
+            <p class="overline">01 / Abstract</p>
+            <h2>Loose garments,<br /><em>tight-wear signals.</em></h2>
+          </div>
+          <p class="prose">
+            Garment-mounted inertial measurement units (IMUs) offer a promising
+            path toward comfortable, unobtrusive, and scalable human motion
+            capture, yet their performance still lags behind tightly attached
+            inertial systems. The central challenge is that loose-wear IMUs
+            provide only indirect, garment-mediated measurements of the
+            underlying body dynamics. The sensor–body coupling is
+            configuration-dependent, varying with garment material, fit, sensor
+            placement, and IMU layout, while long-term inertial drift further
+            perturbs the observation space. Consequently, identical body motions
+            can induce substantially different inertial measurements across
+            garments, yielding heterogeneous, noisy, and temporally drifting
+            observations. In this paper, we introduce <strong>CLOTHO</strong>, an
+            <strong>IMU canonicalization</strong> framework for garment-based
+            inertial motion capture. Rather than directly mapping loose-wear
+            IMUs to body pose, CLOTHO reformulates garment-based motion capture
+            as an IMU canonicalization problem: recovering clean,
+            drift-corrected, and spatially complete tight-wear inertial signals
+            from corrupted and incomplete loose-wear observations. To train and
+            evaluate CLOTHO, we collect the
+            <strong>largest garment-based inertial motion capture dataset</strong>
+            to date, comprising <strong>12.5M IMU frames</strong>, approximately
+            <strong>116 hours</strong> of recordings, and five garment designs
+            with diverse materials, layouts, IMU counts, and sensing hardware.
+            Extensive experiments show that a single fixed CLOTHO model achieves
+            <strong>state-of-the-art</strong> accuracy,
+            <strong
+              >zero-shot generalization to unseen garments, and improved
+              robustness during long-term tracking.</strong
+            >
+            We also find that CLOTHO demonstrates
+            <strong>superior scaling behavior</strong>, enabling practical
+            deployment across diverse everyday garments. We will open-source all
+            our software codes, model weights, hardware designs, and datasets to
+            facilitate future research.
+          </p>
+        </div>
+      </section>
 
-    <!-- Abstract -->
-    <section class="abstract content-section">
-      <h2>Abstract</h2>
-      <p class="section-text">
-        Garment-mounted inertial measurement units (IMUs) offer a promising
-        path toward comfortable, unobtrusive, and scalable human motion
-        capture, yet their performance still lags behind tightly attached
-        inertial systems. The central challenge is that loose-wear IMUs
-        provide only indirect, garment-mediated measurements of the
-        underlying body dynamics. The sensor&ndash;body coupling is
-        configuration-dependent, varying with garment material, fit, sensor
-        placement, and IMU layout, while long-term inertial drift further
-        perturbs the observation space. Consequently, identical body motions
-        can induce substantially different inertial measurements across
-        garments, yielding heterogeneous, noisy, and temporally drifting
-        observations. In this paper, we introduce <b>CLOTHO</b>, an
-        <b>IMU canonicalization</b> framework for garment-based inertial
-        motion capture. Rather than directly mapping loose-wear IMUs to body
-        pose, CLOTHO reformulates garment-based motion capture as an
-        IMU canonicalization problem: recovering clean, drift-corrected, and
-        spatially complete tight-wear inertial signals from corrupted and
-        incomplete loose-wear observations. To train and evaluate
-        CLOTHO, we collect the <b>largest garment-based inertial
-        motion capture dataset</b> to date, comprising <b>12.5M IMU
-        frames</b>, approximately <b>116 hours</b> of recordings, and five
-        garment designs with diverse materials, layouts, IMU counts, and
-        sensing hardware. Extensive experiments show that a single fixed
-        CLOTHO model achieves <b>state-of-the-art</b> accuracy,
-        <b>zero-shot generalization to unseen garments, and improved
-        robustness during long-term tracking.</b> We also find that
-        CLOTHO demonstrates <b>superior scaling behavior</b>, enabling
-        practical deployment across diverse everyday garments. We will
-        open-source all our software codes, model weights, hardware designs,
-        and datasets to facilitate future research.
-      </p>
-    </section>
+      <section class="chapter" id="method">
+        <div class="page-width">
+          <div class="chapter-head">
+            <p class="overline">02 / Method</p>
+            <h2>Canonicalize first,<br /><em>then reconstruct.</em></h2>
+          </div>
+          <figure class="figure">
+            <img
+              src="./images/Fig_pipeline.png"
+              alt="CLOTHO pipeline: Masked IMU Encoder and Latent-Conditioned IMU Canonicalizer"
+            />
+            <figcaption>
+              Given sparse and noisy loose-wear IMU observations, CLOTHO first
+              canonicalizes them into a clean, drift-corrected, and spatially
+              complete 10-IMU representation. The Masked IMU Encoder extracts a
+              configuration-invariant latent representation from partial
+              observations, and the Latent-Conditioned IMU Canonicalizer predicts
+              residual corrections to recover canonical IMU sequences. A
+              downstream motion reconstruction then reconstructs full-body motion
+              from the recovered canonical IMU sequences.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
-    <!-- Method -->
-    <section class="method content-section">
-      <h2>Method</h2>
-      <img
-        class="section-image"
-        src="./images/Fig_pipeline.png"
-        alt="CLOTHO pipeline: Masked IMU Encoder and Latent-Conditioned IMU Canonicalizer"
-      />
-      <p class="section-text">
-        Given sparse and noisy loose-wear IMU observations,
-        CLOTHO first canonicalizes them into a clean, drift-corrected,
-        and spatially complete 10-IMU representation. The
-        Masked IMU Encoder extracts a configuration-invariant latent
-        representation from partial observations, and the
-        Latent-Conditioned IMU Canonicalizer predicts residual
-        corrections to recover canonical IMU sequences. A downstream motion
-        reconstruction then reconstructs full-body motion from the recovered
-        canonical IMU sequences.
-      </p>
-    </section>
+      <section class="chapter" id="hardware">
+        <div class="page-width">
+          <div class="chapter-head">
+            <p class="overline">03 / Hardware</p>
+            <h2>Five garments,<br /><em>one sensing family.</em></h2>
+          </div>
+          <figure class="figure">
+            <img
+              src="./images/Fig_hardware.jpg"
+              alt="Fabrication-and-sensing pipelines and garment configurations"
+            />
+            <figcaption>
+              Fabrication-and-sensing pipelines and garment configurations. (a)
+              The Pattern-Integrated Sensing Pipeline. (b) The Pocket-Mounted
+              Add-on Pipeline. (c) Garment configurations used in our datasets.
+              Green-10, Taichi-10, and White-10 use 10 low-cost BNO085 IMUs, with
+              an approximate cost of US$19 per IMU; Purple-6 uses 6 Xsens MTi-3
+              IMUs, with an approximate cost of US$230 per IMU; T-Shirt-4 uses 4
+              Noitom PN3 sensors.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
-    <!-- Hardware -->
-    <section class="hardware content-section">
-      <h2>Hardware</h2>
-      <img
-        class="section-image"
-        src="./images/Fig_hardware.jpg"
-        alt="Fabrication-and-sensing pipelines and garment configurations"
-      />
-      <p class="section-text">
-        Fabrication-and-sensing pipelines and garment configurations. (a) The
-        Pattern-Integrated Sensing Pipeline. (b) The Pocket-Mounted Add-on
-        Pipeline. (c) Garment configurations used in our datasets. Green-10,
-        Taichi-10, and White-10 use 10 low-cost BNO085 IMUs, with an
-        approximate cost of US$19 per IMU; Purple-6 uses 6 Xsens MTi-3 IMUs,
-        with an approximate cost of US$230 per IMU; T-Shirt-4 uses 4 Noitom
-        PN3 sensors.
-      </p>
-    </section>
+      <section class="chapter" id="results">
+        <div class="page-width">
+          <div class="chapter-head">
+            <p class="overline">04 / Results</p>
+            <h2>One model,<br /><em>across garments and time.</em></h2>
+          </div>
+          <p class="lede">
+            A single CLOTHO model reaches the lowest positional error on every
+            test garment, cutting Pos Error by 42% relative to FIP and LIP,
+            including garments and IMU counts it never saw in that configuration.
+          </p>
+          <figure class="figure">
+            <img
+              src="./images/Fig_teaser.png"
+              alt="Cross-garment generalization and long-term robustness of CLOTHO"
+            />
+            <figcaption>
+              CLOTHO tracks full-body motion from loose garments with different
+              fabrics and IMU counts, and remains stable over long recordings
+              where drift-sensitive baselines diverge.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              src="./images/Fig_sota.png"
+              alt="Qualitative comparison of CLOTHO against prior garment-based inertial motion capture methods"
+            />
+            <figcaption>
+              Qualitative comparison across garments. Unlike methods that train a
+              separate model for each IMU count, CLOTHO uses one unified model
+              for every setting.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              src="./images/Fig_scaling.png"
+              alt="Scaling behavior of CLOTHO with data and model size"
+            />
+            <figcaption>
+              CLOTHO improves as unlabeled IMU data and paired garment–motion
+              data scale, and canonicalization outperforms direct pose regression
+              across data budgets.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer page-width">
+      <span>CLOTHO</span>
+      <span>ACM Transactions on Graphics (SIGGRAPH Asia 2026)</span>
+    </footer>
   </body>
 </html>
