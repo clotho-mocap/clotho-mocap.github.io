@@ -21,7 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,560;1,6..72,460&display=swap"
       rel="stylesheet"
     />
-    <link href="style.css?v=5" rel="stylesheet" />
+    <link href="style.css?v=6" rel="stylesheet" />
     <script src="app.js?v=4" defer></script>
   </head>
   <body>
@@ -258,6 +258,18 @@
               where drift-sensitive baselines diverge.
             </figcaption>
           </figure>
+          <figure class="figure figure-longterm" id="longterm">
+            <video
+              src="./longtime.mp4"
+              controls
+              playsinline
+              preload="metadata"
+            ></video>
+            <figcaption class="chapter-head">
+              <p class="overline">Long-term</p>
+              <h2>Eight hours,<br /><em>without drift.</em></h2>
+            </figcaption>
+          </figure>
           <figure class="figure figure-split">
             <img
               src="./images/Fig_sota.png"
@@ -277,52 +289,29 @@
             />
             <figcaption>
               <p>
-                We study how garment-based motion capture scales along three
-                axes: data type, model formulation, and model size. Methods on
-                the same axis are trained on matched nested subsets with the
-                same schedule. Panels (a), (b), and (e) report orientation
-                measurement error (OME) on the cross-garment test set; (c) and
-                (d) report Pos Error on Green-10.
+                Scaling is measured on matched subsets. (a), (b), and (e) report
+                OME on the cross-garment test set; (c) and (d) report Pos Error
+                on Green-10.
               </p>
               <p>
-                <strong>Data type.</strong> Paired garment–motion recordings
-                supervise the residual canonicalization mapping directly: 7.07
-                hours of labels lowers OME from 16.05° to 13.78°, but this data
-                is expensive to collect. Unlabeled garment IMUs need no motion
-                ground truth and scale to 101.1 hours of everyday wear; their
-                error keeps falling and has not saturated. The two are
-                complementary. Unlabeled data widens the motion and sensor
-                configurations seen by the encoder, and paired data then anchors
-                the canonical target.
+                <strong>Data type.</strong> 7.07 h of paired labels lowers OME
+                from 16.05° to 13.78°. Unlabeled IMUs scale to 101.1 h and have
+                not saturated. The two are complementary.
               </p>
               <p>
-                <strong>Real versus synthetic.</strong> Across every data
-                budget, real-data variants of LIP and FIP stay well ahead of
-                their synthetic counterparts, and the gap does not close as
-                synthetic data grows. Even 0.55 hours of real paired recordings
-                outperforms 7 hours of synthetic garment data, so a modest
-                amount of real supervision is more useful than scaling simulated
-                loose-wear noise alone.
+                <strong>Real versus synthetic.</strong> Real LIP and FIP stay
+                ahead of their synthetic versions. 0.55 h of real pairs beats 7 h
+                of synthetic garment data.
               </p>
               <p>
-                <strong>Formulation.</strong> We fit
-                ε(m) = A m<sup>−α</sup> between the amount of real paired data
-                and Pos Error. End-to-end LIP* must undo garment artifacts and
-                recover pose in one model, so extra samples help slowly
-                (α = 0.09). GlobalPose* is stronger (α = 0.15) because its
-                gravity-aware prior partly absorbs root drift, but it still
-                reads raw loose-wear signals. CLOTHO separates IMU
-                canonicalization from motion reconstruction, so each new paired
-                sample goes more directly to the residual correction and yields
-                the steepest trend (α = 0.23).
+                <strong>Formulation.</strong> Fitting ε(m) = A m<sup>−α</sup>,
+                LIP* scales at α = 0.09, GlobalPose* at 0.15, and CLOTHO at
+                0.23, because canonicalization and pose reconstruction are
+                separated.
               </p>
               <p>
-                <strong>Model size.</strong> With paired data fixed at 7.07
-                hours, growing CLOTHO from 10.1M to 92.0M parameters — about
-                9× — reduces OME by only 1.02°. In this regime the limit is
-                data diversity, not capacity. Moving from 32.1M to 92.0M
-                recovers about 0.5° at roughly 7 ms extra latency per frame,
-                which is a poor trade for real-time use.
+                <strong>Model size.</strong> From 10.1M to 92.0M parameters, OME
+                drops only 1.02°. The limit is data, not capacity.
               </p>
             </figcaption>
           </figure>

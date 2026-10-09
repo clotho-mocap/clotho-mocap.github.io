@@ -266,9 +266,7 @@ a {
   width: auto;
   max-width: 168px;
   object-fit: contain;
-  padding: 6px 10px;
-  background: #fff;
-  border-radius: 8px;
+  background: transparent;
 }
 
 .hero-actions {
@@ -441,6 +439,25 @@ a {
   margin-top: 0;
 }
 
+.figure-longterm {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 28px 40px;
+  align-items: center;
+}
+
+.figure-longterm video {
+  width: 100%;
+  height: auto;
+  background: #111;
+  border: 1px solid var(--line);
+}
+
+.figure-longterm figcaption {
+  margin-top: 0;
+  text-align: left;
+}
+
 .site-footer {
   display: flex;
   flex-wrap: wrap;
@@ -477,6 +494,14 @@ a {
   }
 
   .figure-split figcaption {
+    margin-top: 14px;
+  }
+
+  .figure-longterm {
+    grid-template-columns: 1fr;
+  }
+
+  .figure-longterm figcaption {
     margin-top: 14px;
   }
 }
