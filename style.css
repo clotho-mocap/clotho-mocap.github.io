@@ -471,7 +471,7 @@ a {
 
 .prior-list a {
   display: grid;
-  grid-template-columns: 148px 72px minmax(0, 1fr);
+  grid-template-columns: 148px 168px minmax(0, 1fr);
   gap: 12px 20px;
   align-items: baseline;
   padding: 16px 0;
