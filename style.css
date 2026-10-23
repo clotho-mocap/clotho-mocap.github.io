@@ -448,6 +448,14 @@ a {
   margin-bottom: 8px;
 }
 
+.scaling {
+  margin-top: 56px;
+}
+
+.scaling .figure {
+  margin-top: 22px;
+}
+
 .qual-carousel {
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr) 40px;
