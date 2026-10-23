@@ -1,0 +1,123 @@
+{
+  "fps": 30,
+  "prediction": "online_guarded",
+  "clips": [
+    {
+      "id": "bag",
+      "source": "43_180014_zzx_bag",
+      "category": "Daily",
+      "title": "Bag",
+      "file": "clips/bag.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "walk",
+      "source": "36_173925_zzx_walk",
+      "category": "Daily",
+      "title": "Walk",
+      "file": "clips/walk.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "golf",
+      "source": "05_181400_hlj_golf",
+      "category": "Sports",
+      "title": "Golf",
+      "file": "clips/golf.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "basketball",
+      "source": "10_170315_lc_basketball",
+      "category": "Sports",
+      "title": "Basketball",
+      "file": "clips/basketball.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "long-jump",
+      "source": "12_170711_lc_longJump",
+      "category": "Sports",
+      "title": "Long Jump",
+      "file": "clips/long-jump.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "badminton",
+      "source": "23_151719_zkb_badminton",
+      "category": "Sports",
+      "title": "Badminton",
+      "file": "clips/badminton.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "warm-up",
+      "source": "33_192238_yy_warmUp",
+      "category": "Fitness",
+      "title": "Warm Up",
+      "file": "clips/warm-up.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "boxing",
+      "source": "41_175649_zzx_box",
+      "category": "Fitness",
+      "title": "Boxing",
+      "file": "clips/boxing.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "gymnastics",
+      "source": "25_152104_zkb_gymnastics",
+      "category": "Fitness",
+      "title": "Gymnastics",
+      "file": "clips/gymnastics.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "tie-shoelaces",
+      "source": "45_180404_zzx_tie_shoelace",
+      "category": "Daily",
+      "title": "Tie Shoelaces",
+      "file": "clips/tie-shoelaces.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "sit",
+      "source": "27_191100_yy_sit",
+      "category": "Daily",
+      "title": "Sit",
+      "file": "clips/sit.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "clean",
+      "source": "14_171053_lc_clean",
+      "category": "Daily",
+      "title": "Clean",
+      "file": "clips/clean.bin",
+      "sourceStart": 60,
+      "frames": 300
+    },
+    {
+      "id": "bow-step",
+      "source": "26_152302_zkb_bowStep",
+      "category": "Fitness",
+      "title": "Bow Step",
+      "file": "clips/bow-step.bin",
+      "sourceStart": 60,
+      "frames": 300
+    }
+  ]
+}

@@ -21,8 +21,17 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,560;1,6..72,460&display=swap"
       rel="stylesheet"
     />
-    <link href="style.css?v=8" rel="stylesheet" />
+    <link href="style.css?v=10" rel="stylesheet" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/build/three.module.js",
+          "three/addons/": "./vendor/three/examples/jsm/"
+        }
+      }
+    </script>
     <script src="app.js?v=4" defer></script>
+    <script type="module" src="qualitative.js?v=9"></script>
   </head>
   <body>
     <a class="skip-link" href="#abstract">Skip to content</a>
@@ -120,7 +129,7 @@
             <div class="hero-actions">
               <a class="pill light" href="./">arXiv <span aria-hidden="true">↗</span></a>
               <a class="pill ghost" href="./">Paper <span aria-hidden="true">↗</span></a>
-              <a class="pill ghost" href="./">Code <span aria-hidden="true">↗</span></a>
+              <a class="pill ghost" href="https://github.com/xiaoxiagao29/Clotho-mocap" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a>
             </div>
           </div>
           <div class="hero-bottom page-width">
@@ -270,18 +279,44 @@
               <h2>Eight hours,<br /><em>without drift.</em></h2>
             </figcaption>
           </figure>
-          <figure class="figure figure-split">
-            <img
-              src="./images/Fig_sota.png"
-              alt="Qualitative comparison of CLOTHO against prior garment-based inertial motion capture methods"
-            />
-            <figcaption>
-              Qualitative comparison across garments. Unlike methods that train a
-              separate model for each IMU count, CLOTHO uses one unified model
-              for every setting. On T-Shirt-4, it still reconstructs full-body
-              motion from only sparse upper-body IMU inputs.
-            </figcaption>
-          </figure>
+          <div class="qualitative" id="qualitative" tabindex="0" aria-label="Qualitative comparison">
+            <div class="chapter-head">
+              <p class="overline">Qualitative</p>
+              <h2>Qualitative<br /><em>comparison.</em></h2>
+            </div>
+            <div class="qual-carousel">
+              <button id="qual-prev" class="qual-arrow" type="button" aria-label="Previous sequence">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6 L8 12 L14 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="qual-strip" id="qual-strip"></div>
+              <button id="qual-next" class="qual-arrow" type="button" aria-label="Next sequence">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6 L16 12 L10 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="qual-card">
+              <div class="qual-stage">
+                <canvas id="qual-canvas" aria-label="Ground truth and prediction side by side"></canvas>
+                <div class="qual-views">
+                  <div>
+                    <p class="qual-view-title"><span class="dot dot-gt"></span>GT</p>
+                    <p class="qual-view-sub">Ground truth</p>
+                  </div>
+                  <div>
+                    <p class="qual-view-title"><span class="dot dot-pred"></span>Prediction</p>
+                    <p class="qual-view-sub">CLOTHO</p>
+                  </div>
+                </div>
+                <p id="qual-status" class="qual-status" role="status">Loading motion…</p>
+              </div>
+              <div class="qual-controls">
+                <button id="qual-play" class="qual-play" type="button" aria-label="Play" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                </button>
+                <input id="qual-seek" class="qual-seek" type="range" min="0" max="1" value="0" step="1" aria-label="Timeline">
+              </div>
+              <p class="qual-hint">Drag to orbit · Scroll to zoom · Right-drag to pan</p>
+            </div>
+          </div>
           <figure class="figure">
             <img
               src="./images/Fig_scaling.png"

@@ -439,6 +439,266 @@ a {
   margin-top: 0;
 }
 
+.qualitative {
+  margin-top: 56px;
+  outline: none;
+}
+
+.qualitative .chapter-head {
+  margin-bottom: 8px;
+}
+
+.qual-carousel {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  gap: 8px;
+  align-items: center;
+  margin-top: 22px;
+}
+
+.qual-arrow {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #243036;
+  box-shadow: 0 4px 16px rgba(28, 36, 43, 0.12);
+  cursor: pointer;
+}
+
+.qual-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.qual-strip {
+  display: flex;
+  gap: 12px;
+  padding: 4px calc(50% - 78px) 2px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.qual-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.qual-thumb {
+  flex: 0 0 156px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.qual-shot {
+  position: relative;
+  display: block;
+  height: 88px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: #d9dee3;
+}
+
+.qual-thumb.is-active .qual-shot {
+  border-color: #2c6b62;
+}
+
+.qual-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qual-pill {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #2a3338;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.qual-name {
+  display: block;
+  min-height: 1.2em;
+  margin-top: 6px;
+  color: transparent;
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.qual-thumb.is-active .qual-name {
+  color: #1c2428;
+}
+
+.qual-card {
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(28, 36, 43, 0.08), 0 0 0 1px rgba(20, 30, 40, 0.05);
+}
+
+.qual-stage {
+  position: relative;
+  height: 520px;
+  background: #eef1f4;
+}
+
+.qual-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.qual-stage::after {
+  content: "";
+  position: absolute;
+  top: 78px;
+  bottom: 18px;
+  left: 50%;
+  width: 1px;
+  background: rgba(28, 36, 43, 0.08);
+  pointer-events: none;
+}
+
+.qual-views {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  pointer-events: none;
+  text-align: center;
+}
+
+.qual-view-title,
+.qual-view-sub {
+  margin: 0;
+}
+
+.qual-view-title {
+  color: #243036;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.qual-view-sub {
+  margin-top: 2px;
+  color: #8b949b;
+  font-size: 13px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 7px;
+  border-radius: 50%;
+  transform: translateY(-1px);
+}
+
+.dot-gt {
+  background: #e4b89a;
+}
+
+.dot-pred {
+  background: #9eb6d4;
+}
+
+.qual-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  background: rgba(238, 241, 244, 0.92);
+  color: #5c676e;
+}
+
+.qual-status[hidden] {
+  display: none;
+}
+
+.qual-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 4px;
+}
+
+.qual-play {
+  display: grid;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: #1c3f3a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.qual-play svg {
+  width: 16px;
+  height: 16px;
+}
+
+.qual-play:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.qual-seek {
+  flex: 1;
+  min-width: 0;
+  accent-color: #1c3f3a;
+}
+
+.qual-text-btn {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #d5dbe0;
+  border-radius: 8px;
+  background: #fff;
+  color: #243036;
+  font: 600 13px var(--sans);
+  cursor: pointer;
+}
+
+.qual-text-btn[aria-pressed="true"] {
+  border-color: #1f4f49;
+  background: #e7f3ef;
+  color: #1f4f49;
+}
+
+.qual-hint {
+  margin: 0;
+  padding: 8px 16px 14px;
+  color: #9aa3a8;
+  font-size: 12px;
+  text-align: center;
+}
+
 .figure-longterm {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -552,5 +812,22 @@ a {
   .prior-list a {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .qual-stage {
+    height: 360px;
+  }
+
+  .qual-strip {
+    padding-inline: calc(50% - 64px);
+  }
+
+  .qual-thumb {
+    flex-basis: 128px;
+  }
+
+  .qual-view-sub,
+  .qual-hint {
+    display: none;
   }
 }
